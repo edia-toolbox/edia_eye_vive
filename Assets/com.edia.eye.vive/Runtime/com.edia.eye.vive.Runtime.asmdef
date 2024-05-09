@@ -1,0 +1,17 @@
+{
+    "name": "Edia.Eye.Vive",
+    "rootNamespace": "",
+    "references": [
+        "GUID:59fd51bd7dd08ca49ae988d9737232f9",
+        "GUID:0460cc0aa903ae648b1655e8367669bf"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
