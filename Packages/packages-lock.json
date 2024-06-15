@@ -15,11 +15,11 @@
       "hash": "aeb550b10891a459e739eaade884c6062caee7aa"
     },
     "com.edia.eye": {
-      "version": "git@gitlab.gwdg.de:edia/edia_eye.git?path=Assets/com.edia.eye",
+      "version": "git@gitlab.gwdg.de:edia/edia_eye.git?path=Assets/com.edia.eye#dev",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b69ad835f65f2f4b30b2695ad26ecb90338949a3"
+      "hash": "627e3c073a40254840dbecd19894874b42084fc6"
     },
     "com.unity.burst": {
       "version": "1.8.9",
@@ -150,7 +150,7 @@
     },
     "com.unity.xr.core-utils": {
       "version": "2.2.3",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.xr": "1.0.0"
@@ -175,7 +175,7 @@
     },
     "com.unity.xr.legacyinputhelpers": {
       "version": "2.1.10",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.vr": "1.0.0",
@@ -192,6 +192,18 @@
         "com.unity.modules.vr": "1.0.0",
         "com.unity.modules.xr": "1.0.0",
         "com.unity.xr.legacyinputhelpers": "2.1.7"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.xr.openxr": {
+      "version": "1.8.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.xr.management": "4.0.1",
+        "com.unity.xr.legacyinputhelpers": "2.1.2",
+        "com.unity.inputsystem": "1.4.4",
+        "com.unity.xr.core-utils": "2.1.1"
       },
       "url": "https://packages.unity.com"
     },
