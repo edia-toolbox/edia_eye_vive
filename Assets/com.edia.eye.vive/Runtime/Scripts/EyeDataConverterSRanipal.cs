@@ -20,17 +20,18 @@ public class EyeDataConverterSRanipal : MonoBehaviour
     private static EyeData_v2 eyeData = new EyeData_v2();
     private static bool eye_callback_registered = false;
 
-    public static ILslTimer LslTimer;
+    [SerializeField]
+    public static ILslTimeAccessible LslTimer;
     public bool UseLslTiming = true;
 
     private void Start() {
 
         if (UseLslTiming) {
             // check if the LslTiming component is available
-            if (GetComponent<ILslTimer>() == null) {
+            if (GetComponent<ILslTimeAccessible>() == null) {
                 Debug.LogError("EyeDataConverterSRanipal requires a LslTiming component (edia_lsl) on the same GameObject.");
             } else {
-                LslTimer = GetComponent<ILslTimer>();
+                LslTimer = GetComponent<ILslTimeAccessible>();
             }
         }
     }
@@ -118,7 +119,7 @@ public class EyeDataConverterSRanipal : MonoBehaviour
             double timestampLsl;
 
             if (LslTimer != null) {
-                timestampLsl = LslTimer.GetTime();
+                timestampLsl = LslTimer.GetLslTime();
             } else {
                 timestampLsl = 0;
             };

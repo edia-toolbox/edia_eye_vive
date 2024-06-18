@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.edia.core": {
-      "version": "git@gitlab.gwdg.de:edia/edia_core.git?path=Assets/com.edia.core#dev",
+      "version": "git@gitlab.gwdg.de:edia/edia_core.git?path=Assets/com.edia.core#feat/refacIEyeOutlet",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -12,14 +12,14 @@
         "com.unity.nuget.newtonsoft-json": "3.2.1",
         "com.unity.textmeshpro": "3.0.8"
       },
-      "hash": "aeb550b10891a459e739eaade884c6062caee7aa"
+      "hash": "9827aa6006afb8c28299ccd7f0ac875129239f26"
     },
     "com.edia.eye": {
-      "version": "git@gitlab.gwdg.de:edia/edia_eye.git?path=Assets/com.edia.eye#dev",
+      "version": "git@gitlab.gwdg.de:edia/edia_eye.git?path=Assets/com.edia.eye#feat/refacIEyeOutlet",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "627e3c073a40254840dbecd19894874b42084fc6"
+      "hash": "9d6ad6276b2c0767970000d88ac1aae89b1a3b91"
     },
     "com.unity.burst": {
       "version": "1.8.9",
