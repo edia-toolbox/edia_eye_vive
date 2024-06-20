@@ -29,7 +29,9 @@ public class EyeDataConverterSRanipal : MonoBehaviour
         if (UseLslTiming) {
             // check if the LslTiming component is available
             if (GetComponent<ILslTimeAccessible>() == null) {
-                Debug.LogError("EyeDataConverterSRanipal requires a LslTiming component (edia_lsl) on the same GameObject.");
+                Debug.LogError("To use LSL timing, the EyeDataConverterSRanipal requires a component on the same GameObject " +
+                               "which implements the ILslTimeAccessible interface (e.g., Edia.Lsl.LslTiming or " +
+                               "Edia.Lsl.EyeOutlet).");
             } else {
                 LslTimer = GetComponent<ILslTimeAccessible>();
             }
