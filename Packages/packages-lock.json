@@ -15,11 +15,11 @@
       "hash": "9827aa6006afb8c28299ccd7f0ac875129239f26"
     },
     "com.edia.eye": {
-      "version": "git@gitlab.gwdg.de:edia/edia_eye.git?path=Assets/com.edia.eye#feat/refacIEyeOutlet",
+      "version": "git@gitlab.gwdg.de:edia/edia_eye.git?path=Assets/com.edia.eye#feat/implementationVarjo",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "d4486970ca5f0e3357e5db52a0130583bb15c8bf"
+      "hash": "37c6e31771e708ff08ebaa6b7bb471448dfe73b0"
     },
     "com.unity.burst": {
       "version": "1.8.9",
