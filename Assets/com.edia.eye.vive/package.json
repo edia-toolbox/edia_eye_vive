@@ -14,6 +14,11 @@
   "author": {
     "name": "EDIA"
   },
+  "samples": [{
+			"displayName": "EDIA Eye Vive demo scene",
+			"description": "Demonstrating SRAnipal > edia eyepackage conversion.",
+			"path": "Samples~/"
+		}],
   "dependencies": {  },
   "hideInEditor": false
 }

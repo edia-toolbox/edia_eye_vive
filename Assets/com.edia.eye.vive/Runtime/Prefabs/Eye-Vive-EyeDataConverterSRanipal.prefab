@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6953486736792480888}
   - component: {fileID: 5311309715874392284}
+  - component: {fileID: 6000568201530948164}
   m_Layer: 0
   m_Name: Eye-Vive-EyeDataConverterSRanipal
   m_TagString: Untagged
@@ -45,3 +46,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UseLslTiming: 1
+--- !u!114 &6000568201530948164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657624760085729584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319ecee2a94dc2c479f4999bd1e4801a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
