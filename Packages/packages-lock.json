@@ -12,14 +12,14 @@
         "com.unity.nuget.newtonsoft-json": "3.2.1",
         "com.unity.textmeshpro": "3.0.8"
       },
-      "hash": "61975782e79fc6fd9beb7c70c80a382ee405e126"
+      "hash": "c9476681f346ab7a3120f932307e61e2e5553db2"
     },
     "com.edia.eye": {
       "version": "git@gitlab.gwdg.de:edia/edia_eye.git?path=Assets/com.edia.eye#dev",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "7edaf96678fbd84e396b408dc15e97bb3280c2a8"
+      "hash": "63d98ec5e8bad90f020da4aceef3cd4e8c900973"
     },
     "com.edia.lsl": {
       "version": "git@gitlab.gwdg.de:edia/edia_lsl.git?path=Assets/com.edia.lsl#dev",
