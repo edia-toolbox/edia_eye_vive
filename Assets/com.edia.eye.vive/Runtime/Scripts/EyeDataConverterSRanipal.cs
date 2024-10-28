@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.InteropServices;
 using Edia;
 using Edia.Eye;
@@ -23,7 +24,7 @@ namespace Edia.Eye.Vive {
 
 		[SerializeField]
 		public static ILslTimeAccessible LslTimer;
-		public bool UseLslTiming = true;
+		public bool UseLslTiming = false;
 
 		private void Start() {
 
@@ -90,67 +91,55 @@ namespace Edia.Eye.Vive {
 		/// <param name="eye_data">Reference to latest eye_data</param>
 		[MonoPInvokeCallback]
 		private static void EyeCallback(ref EyeData_v2 eye_data) {
+			
 			eyeData = eye_data;
 
-			foreach (string eye in new string[] { "left", "right", "center" }) {
+			foreach (Constants.EyeId eye in Enum.GetValues(typeof(Constants.EyeId))) {
 
-				SingleEyeData tmpData;
-				switch (eye) {
-					case "left":
+				EyeDataPackage ed = new();
+				SingleEyeData tmpData = new();
+
+                switch (eye) {
+					case Constants.EyeId.LEFT:
 						tmpData = eyeData.verbose_data.left;
 						break;
-					case "right":
+					case Constants.EyeId.RIGHT:
 						tmpData = eyeData.verbose_data.right;
 						break;
-					case "center":
-						tmpData = eyeData.verbose_data.combined.eye_data;
-						break;
-					default:
+					case Constants.EyeId.CENTER:
 						tmpData = eyeData.verbose_data.combined.eye_data;
 						break;
 				}
+				
+				ed.isValid = tmpData.GetValidity(0);
+                double timestampLsl = LslTimer != null ? LslTimer.GetLslTime() : 0;
 
-				double timestampLsl;
+				ed.eye = eye.ToString().ToLower();
+                ed.timestamp_et = eyeData.timestamp;
+                ed.timestamp_lsl = timestampLsl;
 
-				if (LslTimer != null) {
-					timestampLsl = LslTimer.GetLslTime();
-				}
-				else {
-					timestampLsl = 0;
-				};
+                if (ed.isValid) {
 
-				EyeDataPackage ed;
-
-				if (tmpData.GetValidity(0)) {
-
-					ed = new() {
-						eye = eye,
-						timestamp_et = eyeData.timestamp,
-						timestamp_lsl = timestampLsl,
-						//SRanipal uses right-handed coord system:
-						direction_x_local = tmpData.gaze_direction_normalized.x * -1f,
-						direction_y_local = tmpData.gaze_direction_normalized.y,
-						direction_z_local = tmpData.gaze_direction_normalized.z,
-						//SRanipal uses right-handed coord system
-						position_x_local = tmpData.gaze_origin_mm.x * -1f * 0.001f,
-						position_y_local = tmpData.gaze_origin_mm.y * 0.001f,
-						position_z_local = tmpData.gaze_origin_mm.z * 0.001f
-					};
-
-					float diameterRight = eyeData.verbose_data.right.pupil_diameter_mm;
-					float diameterLeft = eyeData.verbose_data.left.pupil_diameter_mm;
+                    ed.direction_x_local = tmpData.gaze_direction_normalized.x * -1f; //SRanipal uses right-handed coord system
+                    ed.direction_y_local = tmpData.gaze_direction_normalized.y;
+                    ed.direction_z_local = tmpData.gaze_direction_normalized.z;
+                    
+                    ed.position_x_local = tmpData.gaze_origin_mm.x * -1f * 0.001f; //SRanipal uses right-handed coord system
+                    ed.position_y_local = tmpData.gaze_origin_mm.y * 0.001f;
+                    ed.position_z_local = tmpData.gaze_origin_mm.z * 0.001f;
 
 					switch (eye) {
-						case "left":
-							ed.diameter = diameterLeft;
+                        case Constants.EyeId.LEFT:
+                            ed.diameter = eyeData.verbose_data.left.pupil_diameter_mm;
 							break;
-						case "right":
-							ed.diameter = diameterRight;
+                        case Constants.EyeId.RIGHT:
+                            ed.diameter = eyeData.verbose_data.right.pupil_diameter_mm;
 							break;
-						case "center":
-							ed.diameter = (diameterRight + diameterLeft) / 2f;
+                        case Constants.EyeId.CENTER:
+                            ed.diameter = (eyeData.verbose_data.left.pupil_diameter_mm + eyeData.verbose_data.right.pupil_diameter_mm) / 2f;
 							break;
 					}
+
 					Quaternion rot = Quaternion.identity;
 					if (new Vector3(ed.direction_x_local, ed.direction_y_local, ed.direction_z_local) != Vector3.zero) {
 						rot = Quaternion.LookRotation(new Vector3(ed.direction_x_local, ed.direction_y_local, ed.direction_z_local));
@@ -161,25 +150,6 @@ namespace Edia.Eye.Vive {
 					ed.rotation_z_local = rot.eulerAngles.z;
 
 					ed.openness = tmpData.eye_openness;
-				}
-
-				else {
-					ed = new() {
-						eye = eye,
-						direction_x_local = 0f,
-						direction_y_local = 0f,
-						direction_z_local = 0f,
-						position_x_local = 0f,
-						position_y_local = 0f,
-						position_z_local = 0f,
-						diameter = 0f,
-						rotation_x_local = 0f,
-						rotation_y_local = 0f,
-						rotation_z_local = 0f,
-						openness = 0f,
-						timestamp_et = eyeData.timestamp,
-						timestamp_lsl = timestampLsl
-					};
 				}
 
 				// TODO: check if this is losing samples
