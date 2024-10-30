@@ -112,11 +112,11 @@ namespace Edia.Eye.Vive {
 				}
 				
 				ed.isValid = tmpData.GetValidity(0);
-                double timestampLsl = LslTimer != null ? LslTimer.GetLslTime() : 0;
+                double timestampLsl = LslTimer != null ? LslTimer.GetLslTime() : 0; // Get current LSL time when callback fires.
 
 				ed.eye = eye.ToString().ToLower();
-                ed.timestamp_et = eyeData.timestamp;
-                ed.timestamp_lsl = timestampLsl;
+                ed.timestamp_et = eyeData.timestamp;  // in ms
+                ed.timestamp_lsl = timestampLsl; // in s
 
                 if (ed.isValid) {
 
