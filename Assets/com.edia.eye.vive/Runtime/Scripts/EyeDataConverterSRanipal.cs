@@ -131,13 +131,16 @@ namespace Edia.Eye.Vive {
 					switch (eye) {
                         case Constants.EyeId.LEFT:
                             ed.diameter = eyeData.verbose_data.left.pupil_diameter_mm;
-							break;
+                            ed.openness = eyeData.verbose_data.left.eye_openness;
+                            break;
                         case Constants.EyeId.RIGHT:
                             ed.diameter = eyeData.verbose_data.right.pupil_diameter_mm;
-							break;
+                            ed.openness = eyeData.verbose_data.right.eye_openness;
+                            break;
                         case Constants.EyeId.CENTER:
                             ed.diameter = (eyeData.verbose_data.left.pupil_diameter_mm + eyeData.verbose_data.right.pupil_diameter_mm) / 2f;
-							break;
+                            ed.openness = (eyeData.verbose_data.left.eye_openness + eyeData.verbose_data.right.eye_openness) / 2f;
+                            break;
 					}
 
 					Quaternion rot = Quaternion.identity;
@@ -148,8 +151,6 @@ namespace Edia.Eye.Vive {
 					ed.rotation_x_local = rot.eulerAngles.x;
 					ed.rotation_y_local = rot.eulerAngles.y;
 					ed.rotation_z_local = rot.eulerAngles.z;
-
-					ed.openness = tmpData.eye_openness;
 				}
 
 				// TODO: check if this is losing samples
