@@ -4,7 +4,7 @@
 
 
 # EDIA Eye Vive
-Support package for the HTC Vive Pro Eye Headset to provide eye tracking data in the context of the [EDIA Toolbox](edia-toolbox.github.io). 
+Support package for the HTC Vive Pro Eye Headset to provide eye tracking data in the context of the [EDIA Toolbox](https://edia-toolbox.github.io). 
 
 # Features
 Provides eye tracking data from a HTC Vive Pro Eye headset per eye (left, right, center) at the device's native sampling frequency (120 Hz). All samples are provided once per Unity `Update()` via the interface of the [EDIA Eye](https://github.com/edia-toolbox/edia_eye) package. The package here "only" solves the parsing into the `EDIA Eye` compatible format.   
