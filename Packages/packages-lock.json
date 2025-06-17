@@ -25,16 +25,6 @@
       },
       "hash": "a8e64a9bf51332691a50a18c31e834fca077b641"
     },
-    "com.edia.lsl": {
-      "version": "git@gitlab.gwdg.de:edia/edia_lsl.git?path=Assets/com.edia.lsl#dev",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.edia.core": "0.5.0",
-        "com.unity.inputsystem": "1.7.0"
-      },
-      "hash": "ea953b89a03f872810fe3d0649f9964e6c0ed754"
-    },
     "com.edia.uxf": {
       "version": "https://github.com/edia-org/unity-experiment-framework.git?path=Assets/com.edia.uxf#dev",
       "depth": 0,
