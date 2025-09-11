@@ -1,8 +1,3 @@
-<p align="center">
-  <img src="./Assets/Resources/Images/IconEye.png" width="128" />
-</p>
-
-
 # EDIA Eye Vive
 Support package for the HTC Vive Pro Eye Headset to provide eye tracking data in the context of the [EDIA Toolbox](https://edia-toolbox.github.io). 
 
