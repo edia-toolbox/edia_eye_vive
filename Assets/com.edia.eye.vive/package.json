@@ -1,8 +1,8 @@
 {
   "name": "com.edia.eye.vive",
   "displayName": "EDIA Eye Vive",
-  "version": "0.1.0",
-  "unity": "2022.3",
+  "version": "0.2.0",
+  "unity": "6000.0",
   "description": "EDIA: Eye tracking Vive",
   "keywords": [
     "EDIA",
@@ -14,6 +14,11 @@
   "author": {
     "name": "EDIA"
   },
+  "samples": [{
+			"displayName": "EDIA Eye Vive demo scene",
+			"description": "Demonstrating SRAnipal > edia eyepackage conversion.",
+			"path": "Samples~/"
+		}],
   "dependencies": {  },
   "hideInEditor": false
 }
