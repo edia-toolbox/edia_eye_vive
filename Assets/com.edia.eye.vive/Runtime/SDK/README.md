@@ -1,6 +1,6 @@
 # Instructions
 
-Place the `ViveSR` folder next to this file (i.e., in the `SDK` folder).  
+YSou need to place the `ViveSR` folder in your Project hierarchy (i.e., in a `Assets/Dependencies/SDK` folder).  
 The `ViveSR` folder is part of the HTC `VIVE Eye and Facial Tracking SDK` which you can (maybe) download from the [Vive Developers website](https://developer.vive.com/eu/support/sdk/category_howto/where-to-download-eye-tracking-runtime-and-sdk.html). 
 Note that HTC is now recommending the OpenXR based SDK and the "old" `VIVE Eye and Facial Tracking SDK` (which is needed for the current implementation of `EDIA`) may not be available there.
 
